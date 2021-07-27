@@ -6,4 +6,26 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Fonts\FontAwesome.otf" />
+    <None Remove="Fonts\FontAwesomeBrands.otf" />
+    <None Remove="Fonts\FontAwesomeLight.otf" />
+    <None Remove="Fonts\FontAwesomeSolid.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\FontAwesomeBrands.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\FontAwesomeLight.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\FontAwesomeSolid.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>

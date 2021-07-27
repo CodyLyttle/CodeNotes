@@ -4,6 +4,103 @@
              xmlns:local="clr-namespace:CodeNotes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Icons">/Fonts/FontAwesome.otf#Font Awesome 5 Pro Regular</FontFamily>
+        <FontFamily x:Key="IconsLight">/Fonts/FontAwesomeLight.otf#Font Awesome 5 Pro Light</FontFamily>
+        <FontFamily x:Key="IconsSolid">/Fonts/FontAwesomeSolid.otf#Font Awesome 5</FontFamily>
+        <FontFamily x:Key="IconsBrands">/Fonts/FontAwesomeBrands.otf#Font Awesome 5 Brands Regular</FontFamily>
+
+        <!-- Default styles -->
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="4 2"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="Control">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+
+        <!-- Custom Styles -->
+
+        <Style x:Key="Transparent" TargetType="Button" >
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="IconButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Opacity" Value="1"/>
+            <Setter Property="FontSize"  Value="24"/>
+            <Setter Property="Foreground" Value="#eeeeee"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FontFamily" Value="{StaticResource Icons}"/>
+            <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="#222222"/>
+            <Setter Property="Opacity" Value="0.7"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <TextBlock HorizontalAlignment="Center"
+                                   Padding="6"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Text="{TemplateBinding Content}"
+                                   VerticalAlignment="Center">
+                            </TextBlock>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.45"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="1.0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="closeButton" TargetType="Button" BasedOn="{StaticResource IconButton}">
+            <Setter Property="Foreground" Value="#bb0000"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="0 8 0 8">
+                            <TextBlock HorizontalAlignment="Center"
+                                   Padding="6"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Text="{TemplateBinding Content}"
+                                   VerticalAlignment="Center">
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.6"/>
+                    <Setter Property="Background" Value="#bb0000"/>
+                    <Setter Property="Foreground" Value="#f6f6f6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>
